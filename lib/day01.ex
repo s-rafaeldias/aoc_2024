@@ -3,7 +3,6 @@ defmodule Day01 do
   def part_one(contents) do
     contents
     |> parsing()
-    |> Tuple.to_list()
     |> Enum.map(&Enum.sort/1)
     |> Enum.zip_with(fn [l, r] -> abs(l - r) end)
     |> Enum.sum()
@@ -14,7 +13,6 @@ defmodule Day01 do
     [left, right] =
       contents
       |> parsing()
-      |> Tuple.to_list()
 
     counts =
       right
@@ -27,7 +25,7 @@ defmodule Day01 do
     |> Enum.sum()
   end
 
-  @spec parsing(binary()) :: tuple()
+  @spec parsing(binary()) :: list()
   defp parsing(content) do
     content
     |> String.split("\n")
@@ -39,5 +37,6 @@ defmodule Day01 do
 
       {[l | left], [r | right]}
     end)
+    |> Tuple.to_list()
   end
 end
