@@ -1,7 +1,8 @@
 defmodule Day01 do
   @spec part_one(binary()) :: integer()
   def part_one(contents) do
-    parsing(contents)
+    contents
+    |> parsing()
     |> Tuple.to_list()
     |> Enum.map(&Enum.sort/1)
     |> Enum.zip_with(fn [l, r] -> abs(l - r) end)
@@ -11,7 +12,8 @@ defmodule Day01 do
   @spec part_two(binary()) :: integer()
   def part_two(contents) do
     [left, right] =
-      parsing(contents)
+      contents
+      |> parsing()
       |> Tuple.to_list()
 
     counts =
