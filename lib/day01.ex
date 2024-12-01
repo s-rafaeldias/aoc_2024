@@ -33,7 +33,7 @@ defmodule Day01 do
       [l, r] =
         line
         |> String.split()
-        |> Enum.map(&(&1 |> String.to_integer()))
+        |> Enum.map(&String.to_integer/1)
 
       {[l | left], [r | right]}
     end)
